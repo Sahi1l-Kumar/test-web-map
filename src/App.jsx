@@ -1,6 +1,6 @@
 import { APIProvider } from "@vis.gl/react-google-maps";
 import "./App.css";
-import { BaseMap } from "./components/BaseMap";
+import { BaseMap } from "./components/BaseMap/BaseMap";
 import Sidebar from "./components/Sidebar";
 
 function App() {

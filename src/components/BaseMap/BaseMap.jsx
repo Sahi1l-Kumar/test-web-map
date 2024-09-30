@@ -5,8 +5,8 @@ import {
   useMapsLibrary,
 } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
-import { templeData } from "../coordinates/temple";
-
+import { templeData } from "../../coordinates/temple";
+import "./BaseMap.css";
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -20,25 +20,60 @@ export const BaseMap = () => {
   }, [apiIsLoaded, map]);
 
   useEffect(() => {
-    if (!mapInstance) return;
+    if (!mapInstance) {
+      return;
+    }
 
     async function loadLibraries() {
-      const { AdvancedMarkerElement, PinElement } =
-        await window.google.maps.importLibrary("marker");
+      const { AdvancedMarkerElement } = await window.google.maps.importLibrary(
+        "marker"
+      );
 
       templeData.forEach((temple) => {
-        const pinGlyph = new PinElement({
-          glyphColor: "white",
-        });
-        new AdvancedMarkerElement({
+        const markerContent = buildContent(temple);
+
+        const templeMarker = new AdvancedMarkerElement({
           map: mapInstance,
+          content: markerContent,
           position: { lat: temple.lat, lng: temple.lng },
           title: temple.name,
-          content: pinGlyph.element,
+        });
+
+        templeMarker.addListener("click", () => {
+          toggleHighlight(templeMarker, temple);
         });
       });
     }
 
+    // Same as the initMap logic
+    function toggleHighlight(markerView) {
+      if (markerView.content.classList.contains("highlight")) {
+        markerView.content.classList.remove("highlight");
+        markerView.zIndex = null;
+      } else {
+        markerView.content.classList.add("highlight");
+        markerView.zIndex = 1;
+      }
+    }
+
+    function buildContent(property) {
+      const content = document.createElement("div");
+
+      content.classList.add("property");
+      content.innerHTML = `
+    <div class="icon">
+        <i aria-hidden="true" class="fa fa-icon fa-om" title="house"></i>
+        <span class="fa-sr-only">house</span>
+    </div>
+    <div class="details">
+        <div class="name">${property.name}</div>
+        <div class="coordinates">${property.lat}, ${property.lng}</div>
+    </div>
+    `;
+      return content;
+    }
+
+    // Call the function to load libraries and add markers
     loadLibraries();
   }, [mapInstance]);
 
