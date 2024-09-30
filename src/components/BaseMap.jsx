@@ -1,44 +1,87 @@
-import { APIProvider, Map } from "@vis.gl/react-google-maps";
+import {
+  Map,
+  useApiIsLoaded,
+  useMap,
+  useMapsLibrary,
+} from "@vis.gl/react-google-maps";
+import { useEffect, useState } from "react";
+import { templeData } from "../coordinates/temple";
 
 export const BaseMap = () => {
-  // Define the bounds for Dharavi (rough approximation of the area)
-  const dharaviBounds = {
-    north: 19.059861, // northern boundary
-    south: 19.036278, // southern boundary
-    east: 72.871944, // eastern boundary
-    west: 72.84225, // western boundary
-  };
+  const apiIsLoaded = useApiIsLoaded();
+  const [mapInstance, setMapInstance] = useState(null);
+
+  const map = useMap();
+
+  useEffect(() => {
+    if (!apiIsLoaded || !map) return;
+
+    setMapInstance(map);
+  }, [apiIsLoaded, map]);
+
+  useEffect(() => {
+    if (!mapInstance) return;
+
+    async function loadLibraries() {
+      const { AdvancedMarkerElement, PinElement } =
+        await window.google.maps.importLibrary("marker");
+
+      templeData.forEach((temple) => {
+        const pinGlyph = new PinElement({
+          glyphColor: "white",
+        });
+        new AdvancedMarkerElement({
+          map: mapInstance,
+          position: { lat: temple.lat, lng: temple.lng },
+          title: temple.name,
+          content: pinGlyph.element,
+        });
+      });
+    }
+
+    loadLibraries();
+  }, [mapInstance]);
+
+  const mapsLib = useMapsLibrary("maps");
+
+  useEffect(() => {
+    if (!mapsLib || !mapInstance) return;
+
+    // const svc = new mapsLib.PlacesService(mapInstance);
+    // Do something with the places service
+  }, [mapsLib, mapInstance]);
 
   return (
-    <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-      <div
-        style={{
-          display: "flex", // Use flexbox for centering
-          justifyContent: "center", // Horizontally center
-          alignItems: "center", // Vertically center
-          width: "100vw", // Full viewport width
-          height: "100vh", // Full viewport height
-        }}
-      >
-        <div style={{ width: "75vw", height: "75vh" }}>
-          {/* Map container 75% of screen */}
-          <Map
-            defaultCenter={{ lat: 19.0402, lng: 72.8539 }} // Centering on Dharavi
-            defaultZoom={15}
-            gestureHandling={"greedy"}
-            disableDefaultUI={true}
-            options={{
-              restriction: {
-                latLngBounds: dharaviBounds, // Restrict to Dharavi bounds
-                strictBounds: true, // Ensure the map stays within bounds
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
+      }}
+    >
+      <div style={{ width: "75vw", height: "75vh" }}>
+        <Map
+          mapId={import.meta.env.VITE_MAP_ID_1} // Roadways and Railways
+          defaultCenter={{ lat: 19.0402, lng: 72.8539 }}
+          defaultZoom={15}
+          gestureHandling={"greedy"}
+          options={{
+            restriction: {
+              latLngBounds: {
+                north: 19.059861,
+                south: 19.036278,
+                east: 72.871944,
+                west: 72.84225,
               },
-              minZoom: 15, // Prevent users from zooming out beyond Dharavi
-              maxZoom: 18, // Optional: Restrict zoom level
-            }}
-            style={{ width: "100%", height: "100%" }} // Make map fill its container
-          />
-        </div>
+              strictBounds: true,
+            },
+            minZoom: 15,
+          }}
+          style={{ width: "100%", height: "100%" }}
+        />
       </div>
-    </APIProvider>
+    </div>
   );
 };
