@@ -5,8 +5,9 @@ import {
   useMapsLibrary,
 } from "@vis.gl/react-google-maps";
 import { useEffect, useState } from "react";
-import { templeData } from "../../coordinates/temple";
 import "./BaseMap.css";
+import { templeData } from "../../coordinates/temple";
+import { storeData } from "../../coordinates/store";
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -28,7 +29,7 @@ export const BaseMap = () => {
       const { AdvancedMarkerElement } = await window.google.maps.importLibrary(
         "marker"
       );
-
+      //Temple Markers
       templeData.forEach((temple) => {
         const markerContent = buildContent(temple);
 
@@ -40,7 +41,23 @@ export const BaseMap = () => {
         });
 
         templeMarker.addListener("click", () => {
-          toggleHighlight(templeMarker, temple);
+          toggleHighlight(templeMarker);
+        });
+      });
+
+      //Store Markers
+      storeData.forEach((store) => {
+        const markerContent = buildContent(store);
+
+        const storeMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: store.lat, lng: store.lng },
+          title: store.name,
+        });
+
+        storeMarker.addListener("click", () => {
+          toggleHighlight(storeMarker);
         });
       });
     }
@@ -62,8 +79,8 @@ export const BaseMap = () => {
       content.classList.add("property");
       content.innerHTML = `
     <div class="icon">
-        <i aria-hidden="true" class="fa fa-icon fa-om" title="house"></i>
-        <span class="fa-sr-only">house</span>
+        <i aria-hidden="true" class="fa fa-icon fa-${property.type}" title="${property.type}"></i>
+        <span class="fa-sr-only">${property.type}</span>
     </div>
     <div class="details">
         <div class="name">${property.name}</div>
