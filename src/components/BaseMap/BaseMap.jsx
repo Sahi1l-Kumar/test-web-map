@@ -9,6 +9,7 @@ import "./BaseMap.css";
 import { templeData } from "../../coordinates/temple";
 import { storeData } from "../../coordinates/store";
 import { barData } from "../../coordinates/bar";
+import { churchData } from "../../coordinates/church";
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -77,6 +78,23 @@ export const BaseMap = () => {
           toggleHighlight(barMarker);
         });
       });
+
+      //Church Markers
+      churchData.forEach((church) => {
+        const markerContent = buildContent(church);
+
+        const churchMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: church.lat, lng: church.lng },
+          title: church.name,
+        });
+
+        churchMarker.addListener("click", () => {
+          toggleHighlight(churchMarker);
+        });
+      });
+
 
 
       //Marking code is ending here

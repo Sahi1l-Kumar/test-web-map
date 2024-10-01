@@ -3,6 +3,7 @@
   --temple-color: #dfdf33;
   --shop-color: #7b1fa2;
   --bar-color: #ff5722; 
+  --church-color: #5073fd;
 }
 
 
@@ -177,13 +178,28 @@ body {
  * Bar icon colors.
  */
  .property.highlight:has(.fa-wine-bottle) .icon {
-  color: var(--bar-color); /* Use the new bar color */
+  color: var(--bar-color); 
 }
 
 .property:not(.highlight):has(.fa-wine-bottle) {
-  background-color: var(--bar-color); /* Use the new bar color */
+  background-color: var(--bar-color); 
 }
 
 .property:not(.highlight):has(.fa-wine-bottle)::after {
-  border-top: 9px solid var(--bar-color); /* Use the new bar color */
+  border-top: 9px solid var(--bar-color); 
+}
+
+/*
+ * Church icon colors.
+ */
+ .property.highlight:has(.fa-church) .icon {
+  color: var(--church-color); 
+}
+
+.property:not(.highlight):has(.fa-church) {
+  background-color: var(--church-color); 
+}
+
+.property:not(.highlight):has(.fa-church)::after {
+  border-top: 9px solid var(--church-color); 
 }
