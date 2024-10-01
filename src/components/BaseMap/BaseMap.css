@@ -2,7 +2,9 @@
   --building-color: #ff9800;
   --temple-color: #dfdf33;
   --shop-color: #7b1fa2;
+  --bar-color: #ff5722; 
 }
+
 
 /*
  * Optional: Makes the sample page fill the window.
@@ -169,4 +171,19 @@ body {
 
 .property:not(.highlight):has(.fa-shop)::after {
   border-top: 9px solid var(--shop-color);
+}
+
+/*
+ * Bar icon colors.
+ */
+ .property.highlight:has(.fa-wine-bottle) .icon {
+  color: var(--bar-color); /* Use the new bar color */
+}
+
+.property:not(.highlight):has(.fa-wine-bottle) {
+  background-color: var(--bar-color); /* Use the new bar color */
+}
+
+.property:not(.highlight):has(.fa-wine-bottle)::after {
+  border-top: 9px solid var(--bar-color); /* Use the new bar color */
 }

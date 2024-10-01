@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import "./BaseMap.css";
 import { templeData } from "../../coordinates/temple";
 import { storeData } from "../../coordinates/store";
+import { barData } from "../../coordinates/bar";
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -60,6 +61,25 @@ export const BaseMap = () => {
           toggleHighlight(storeMarker);
         });
       });
+
+      //Bar Markers
+      barData.forEach((bar) => {
+        const markerContent = buildContent(bar);
+
+        const barMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: bar.lat, lng: bar.lng },
+          title: bar.name,
+        });
+
+        barMarker.addListener("click", () => {
+          toggleHighlight(barMarker);
+        });
+      });
+
+
+      //Marking code is ending here
     }
 
     // Same as the initMap logic
