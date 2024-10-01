@@ -10,6 +10,10 @@ import { templeData } from "../../coordinates/temple";
 import { storeData } from "../../coordinates/store";
 import { barData } from "../../coordinates/bar";
 import { churchData } from "../../coordinates/church";
+import { marketData } from "../../coordinates/market";
+import { parkData } from "../../coordinates/park";
+
+
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -95,6 +99,37 @@ export const BaseMap = () => {
         });
       });
 
+      //Market Markers
+      marketData.forEach((market) => {
+        const markerContent = buildContent(market);
+
+        const marketMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: market.lat, lng: market.lng },
+          title: market.name,
+        });
+
+        marketMarker.addListener("click", () => {
+          toggleHighlight(marketMarker);
+        });
+      });
+
+      //Park Markers
+      parkData.forEach((park) => {
+        const markerContent = buildContent(park);
+
+        const parkMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: park.lat, lng: park.lng },
+          title: park.name,
+        });
+
+        parkMarker.addListener("click", () => {
+          toggleHighlight(parkMarker);
+        });
+      });
 
 
       //Marking code is ending here

@@ -4,6 +4,8 @@
   --shop-color: #7b1fa2;
   --bar-color: #ff5722; 
   --church-color: #5073fd;
+  --market-color: #ff0505;
+  --park-color: #337600;
 }
 
 
@@ -202,4 +204,34 @@ body {
 
 .property:not(.highlight):has(.fa-church)::after {
   border-top: 9px solid var(--church-color); 
+}
+
+/*
+ * Market icon colors.
+ */
+ .property.highlight:has(.fa-store) .icon {
+  color: var(--market-color); 
+}
+
+.property:not(.highlight):has(.fa-store) {
+  background-color: var(--market-color); 
+}
+
+.property:not(.highlight):has(.fa-store)::after {
+  border-top: 9px solid var(--market-color); 
+}
+
+/*
+ * Park icon colors.
+ */
+ .property.highlight:has(.fa-tree) .icon {
+  color: var(--park-color); 
+}
+
+.property:not(.highlight):has(.fa-tree) {
+  background-color: var(--park-color); 
+}
+
+.property:not(.highlight):has(.fa-tree)::after {
+  border-top: 9px solid var(--park-color); 
 }
