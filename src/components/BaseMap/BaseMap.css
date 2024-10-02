@@ -6,6 +6,9 @@
   --church-color: #5073fd;
   --market-color: #ff0505;
   --park-color: #337600;
+  --potter-color: #5b3300;
+  --toilet-color: #c00000;
+
 }
 
 
@@ -234,4 +237,34 @@ body {
 
 .property:not(.highlight):has(.fa-tree)::after {
   border-top: 9px solid var(--park-color); 
+}
+
+/*
+ * Potter icon colors.
+ */
+ .property.highlight:has(.fa-paint-roller) .icon {
+  color: var(--potter-color); 
+}
+
+.property:not(.highlight):has(.fa-paint-roller) {
+  background-color: var(--potter-color); 
+}
+
+.property:not(.highlight):has(.fa-paint-roller)::after {
+  border-top: 9px solid var(--potter-color); 
+}
+
+/*
+ * Toilet icon colors.
+ */
+ .property.highlight:has(.fa-restroom) .icon {
+  color: var(--toilet-color); 
+}
+
+.property:not(.highlight):has(.fa-restroom) {
+  background-color: var(--toilet-color); 
+}
+
+.property:not(.highlight):has(.fa-restroom)::after {
+  border-top: 9px solid var(--toilet-color); 
 }

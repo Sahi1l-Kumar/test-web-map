@@ -12,6 +12,8 @@ import { barData } from "../../coordinates/bar";
 import { churchData } from "../../coordinates/church";
 import { marketData } from "../../coordinates/market";
 import { parkData } from "../../coordinates/park";
+import { potterData } from "../../coordinates/potter";
+import { toiletData } from "../../coordinates/toilet";
 
 
 export const BaseMap = () => {
@@ -128,6 +130,38 @@ export const BaseMap = () => {
 
         parkMarker.addListener("click", () => {
           toggleHighlight(parkMarker);
+        });
+      });
+
+       //Potter Markers
+       potterData.forEach((potter) => {
+        const markerContent = buildContent(potter);
+
+        const potterMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: potter.lat, lng: potter.lng },
+          title: potter.name,
+        });
+
+        potterMarker.addListener("click", () => {
+          toggleHighlight(potterMarker);
+        });
+      });
+
+      //Toilet Markers
+      toiletData.forEach((toilet) => {
+        const markerContent = buildContent(toilet);
+
+        const toiletMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: toilet.lat, lng: toilet.lng },
+          title: toilet.name,
+        });
+
+        toiletMarker.addListener("click", () => {
+          toggleHighlight(toiletMarker);
         });
       });
 
