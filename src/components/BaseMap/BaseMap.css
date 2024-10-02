@@ -2,7 +2,7 @@
   --building-color: #ff9800;
   --temple-color: #dfdf33;
   --store-color: #7b1fa2;
-  --bar-color: #ff5722; 
+  --bar-color: #ff5722;
   --church-color: #5073fd;
   --market-color: #ff0505;
   --park-color: #337600;
@@ -15,11 +15,7 @@
   --mosque-color: #a5a5a5;
   --food-color: #ff8d0b;
   --school-color: #00bda7;
-
-
-
 }
-
 
 /*
  * Optional: Makes the sample page fill the window.
@@ -191,194 +187,209 @@ body {
 /*
  * Bar icon colors.
  */
- .property.highlight:has(.fa-wine-bottle) .icon {
-  color: var(--bar-color); 
+.property.highlight:has(.fa-wine-bottle) .icon {
+  color: var(--bar-color);
 }
 
 .property:not(.highlight):has(.fa-wine-bottle) {
-  background-color: var(--bar-color); 
+  background-color: var(--bar-color);
 }
 
 .property:not(.highlight):has(.fa-wine-bottle)::after {
-  border-top: 9px solid var(--bar-color); 
+  border-top: 9px solid var(--bar-color);
 }
 
 /*
  * Church icon colors.
  */
- .property.highlight:has(.fa-church) .icon {
-  color: var(--church-color); 
+.property.highlight:has(.fa-church) .icon {
+  color: var(--church-color);
 }
 
 .property:not(.highlight):has(.fa-church) {
-  background-color: var(--church-color); 
+  background-color: var(--church-color);
 }
 
 .property:not(.highlight):has(.fa-church)::after {
-  border-top: 9px solid var(--church-color); 
+  border-top: 9px solid var(--church-color);
 }
 
 /*
  * Market icon colors.
  */
- .property.highlight:has(.fa-cart-shopping) .icon {
-  color: var(--market-color); 
+.property.highlight:has(.fa-cart-shopping) .icon {
+  color: var(--market-color);
 }
 
 .property:not(.highlight):has(.fa-cart-shopping) {
-  background-color: var(--market-color); 
+  background-color: var(--market-color);
 }
 
 .property:not(.highlight):has(.fa-cart-shopping)::after {
-  border-top: 9px solid var(--market-color); 
+  border-top: 9px solid var(--market-color);
 }
 
 /*
  * Park icon colors.
  */
- .property.highlight:has(.fa-tree) .icon {
-  color: var(--park-color); 
+.property.highlight:has(.fa-tree) .icon {
+  color: var(--park-color);
 }
 
 .property:not(.highlight):has(.fa-tree) {
-  background-color: var(--park-color); 
+  background-color: var(--park-color);
 }
 
 .property:not(.highlight):has(.fa-tree)::after {
-  border-top: 9px solid var(--park-color); 
+  border-top: 9px solid var(--park-color);
 }
 
 /*
  * Potter icon colors.
  */
- .property.highlight:has(.fa-paint-roller) .icon {
-  color: var(--potter-color); 
+.property.highlight:has(.fa-paint-roller) .icon {
+  color: var(--potter-color);
 }
 
 .property:not(.highlight):has(.fa-paint-roller) {
-  background-color: var(--potter-color); 
+  background-color: var(--potter-color);
 }
 
 .property:not(.highlight):has(.fa-paint-roller)::after {
-  border-top: 9px solid var(--potter-color); 
+  border-top: 9px solid var(--potter-color);
 }
 
 /*
  * Toilet icon colors.
  */
- .property.highlight:has(.fa-restroom) .icon {
-  color: var(--toilet-color); 
+.property.highlight:has(.fa-restroom) .icon {
+  color: var(--toilet-color);
 }
 
 .property:not(.highlight):has(.fa-restroom) {
-  background-color: var(--toilet-color); 
+  background-color: var(--toilet-color);
 }
 
 .property:not(.highlight):has(.fa-restroom)::after {
-  border-top: 9px solid var(--toilet-color); 
+  border-top: 9px solid var(--toilet-color);
 }
 
 /*
  * Bank icon colors.
  */
- .property.highlight:has(.fa-landmark) .icon {
-  color: var(--bank-color); 
+.property.highlight:has(.fa-landmark) .icon {
+  color: var(--bank-color);
 }
 
 .property:not(.highlight):has(.fa-landmark) {
-  background-color: var(--bank-color); 
+  background-color: var(--bank-color);
 }
 
 .property:not(.highlight):has(.fa-landmark)::after {
-  border-top: 9px solid var(--bank-color); 
+  border-top: 9px solid var(--bank-color);
 }
 
 /*
  * College icon colors.
  */
- .property.highlight:has(.fa-graduation-cap) .icon {
-  color: var(--college-color); 
+.property.highlight:has(.fa-graduation-cap) .icon {
+  color: var(--college-color);
 }
 
 .property:not(.highlight):has(.fa-graduation-cap) {
-  background-color: var(--college-color); 
+  background-color: var(--college-color);
 }
 
 .property:not(.highlight):has(.fa-graduation-cap)::after {
-  border-top: 9px solid var(--college-color); 
+  border-top: 9px solid var(--college-color);
 }
 
 /*
  * Hospital icon colors.
  */
- .property.highlight:has(.fa-hospital) .icon {
-  color: var(--hospital-color); 
+.property.highlight:has(.fa-hospital) .icon {
+  color: var(--hospital-color);
 }
 
 .property:not(.highlight):has(.fa-hospital) {
-  background-color: var(--hospital-color); 
+  background-color: var(--hospital-color);
 }
 
 .property:not(.highlight):has(.fa-hospital)::after {
-  border-top: 9px solid var(--hospital-color); 
+  border-top: 9px solid var(--hospital-color);
 }
 
 /*
  * hotel icon colors.
  */
- .property.highlight:has(.fa-bed) .icon {
-  color: var(--hotel-color); 
+.property.highlight:has(.fa-bed) .icon {
+  color: var(--hotel-color);
 }
 
 .property:not(.highlight):has(.fa-bed) {
-  background-color: var(--hotel-color); 
+  background-color: var(--hotel-color);
 }
 
 .property:not(.highlight):has(.fa-bed)::after {
-  border-top: 9px solid var(--hotel-color); 
+  border-top: 9px solid var(--hotel-color);
 }
 
 /*
  * mosque icon colors.
  */
- .property.highlight:has(.fa-mosque) .icon {
-  color: var(--mosque-color); 
+.property.highlight:has(.fa-mosque) .icon {
+  color: var(--mosque-color);
 }
 
 .property:not(.highlight):has(.fa-mosque) {
-  background-color: var(--mosque-color); 
+  background-color: var(--mosque-color);
 }
 
 .property:not(.highlight):has(.fa-mosque)::after {
-  border-top: 9px solid var(--mosque-color); 
+  border-top: 9px solid var(--mosque-color);
 }
 
 /*
  * restaurant icon colors.
  */
- .property.highlight:has(.fa-utensils) .icon {
-  color: var(--food-color); 
+.property.highlight:has(.fa-utensils) .icon {
+  color: var(--food-color);
 }
 
 .property:not(.highlight):has(.fa-utensils) {
-  background-color: var(--food-color); 
+  background-color: var(--food-color);
 }
 
 .property:not(.highlight):has(.fa-utensils)::after {
-  border-top: 9px solid var(--food-color); 
+  border-top: 9px solid var(--food-color);
 }
 
 /*
  * school icon colors.
  */
- .property.highlight:has(.fa-school) .icon {
-  color: var(--school-color); 
+.property.highlight:has(.fa-school) .icon {
+  color: var(--school-color);
 }
 
 .property:not(.highlight):has(.fa-school) {
-  background-color: var(--school-color); 
+  background-color: var(--school-color);
 }
 
 .property:not(.highlight):has(.fa-school)::after {
-  border-top: 9px solid var(--school-color); 
+  border-top: 9px solid var(--school-color);
+}
+
+.navigate-map-button {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: rgb(25, 25, 25);
+  cursor: pointer;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 38px;
+  margin: 8px 10px 22px;
+  padding: 0 5px;
+  text-align: center;
 }
