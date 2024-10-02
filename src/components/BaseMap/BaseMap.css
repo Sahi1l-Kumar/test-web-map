@@ -1,13 +1,22 @@
 :root {
   --building-color: #ff9800;
   --temple-color: #dfdf33;
-  --shop-color: #7b1fa2;
+  --store-color: #7b1fa2;
   --bar-color: #ff5722; 
   --church-color: #5073fd;
   --market-color: #ff0505;
   --park-color: #337600;
   --potter-color: #5b3300;
   --toilet-color: #c00000;
+  --bank-color: #ffea00;
+  --college-color: #606e6b;
+  --hospital-color: #7bd7ff;
+  --hotel-color: #005579;
+  --mosque-color: #a5a5a5;
+  --food-color: #ff8d0b;
+  --school-color: #00bda7;
+
+
 
 }
 
@@ -165,18 +174,18 @@ body {
 }
 
 /*
- * Shop icon colors.
+ * store icon colors.
  */
-.property.highlight:has(.fa-shop) .icon {
-  color: var(--shop-color);
+.property.highlight:has(.fa-store) .icon {
+  color: var(--store-color);
 }
 
-.property:not(.highlight):has(.fa-shop) {
-  background-color: var(--shop-color);
+.property:not(.highlight):has(.fa-store) {
+  background-color: var(--store-color);
 }
 
-.property:not(.highlight):has(.fa-shop)::after {
-  border-top: 9px solid var(--shop-color);
+.property:not(.highlight):has(.fa-store)::after {
+  border-top: 9px solid var(--store-color);
 }
 
 /*
@@ -212,15 +221,15 @@ body {
 /*
  * Market icon colors.
  */
- .property.highlight:has(.fa-store) .icon {
+ .property.highlight:has(.fa-cart-shopping) .icon {
   color: var(--market-color); 
 }
 
-.property:not(.highlight):has(.fa-store) {
+.property:not(.highlight):has(.fa-cart-shopping) {
   background-color: var(--market-color); 
 }
 
-.property:not(.highlight):has(.fa-store)::after {
+.property:not(.highlight):has(.fa-cart-shopping)::after {
   border-top: 9px solid var(--market-color); 
 }
 
@@ -267,4 +276,109 @@ body {
 
 .property:not(.highlight):has(.fa-restroom)::after {
   border-top: 9px solid var(--toilet-color); 
+}
+
+/*
+ * Bank icon colors.
+ */
+ .property.highlight:has(.fa-landmark) .icon {
+  color: var(--bank-color); 
+}
+
+.property:not(.highlight):has(.fa-landmark) {
+  background-color: var(--bank-color); 
+}
+
+.property:not(.highlight):has(.fa-landmark)::after {
+  border-top: 9px solid var(--bank-color); 
+}
+
+/*
+ * College icon colors.
+ */
+ .property.highlight:has(.fa-graduation-cap) .icon {
+  color: var(--college-color); 
+}
+
+.property:not(.highlight):has(.fa-graduation-cap) {
+  background-color: var(--college-color); 
+}
+
+.property:not(.highlight):has(.fa-graduation-cap)::after {
+  border-top: 9px solid var(--college-color); 
+}
+
+/*
+ * Hospital icon colors.
+ */
+ .property.highlight:has(.fa-hospital) .icon {
+  color: var(--hospital-color); 
+}
+
+.property:not(.highlight):has(.fa-hospital) {
+  background-color: var(--hospital-color); 
+}
+
+.property:not(.highlight):has(.fa-hospital)::after {
+  border-top: 9px solid var(--hospital-color); 
+}
+
+/*
+ * hotel icon colors.
+ */
+ .property.highlight:has(.fa-bed) .icon {
+  color: var(--hotel-color); 
+}
+
+.property:not(.highlight):has(.fa-bed) {
+  background-color: var(--hotel-color); 
+}
+
+.property:not(.highlight):has(.fa-bed)::after {
+  border-top: 9px solid var(--hotel-color); 
+}
+
+/*
+ * mosque icon colors.
+ */
+ .property.highlight:has(.fa-mosque) .icon {
+  color: var(--mosque-color); 
+}
+
+.property:not(.highlight):has(.fa-mosque) {
+  background-color: var(--mosque-color); 
+}
+
+.property:not(.highlight):has(.fa-mosque)::after {
+  border-top: 9px solid var(--mosque-color); 
+}
+
+/*
+ * restaurant icon colors.
+ */
+ .property.highlight:has(.fa-utensils) .icon {
+  color: var(--food-color); 
+}
+
+.property:not(.highlight):has(.fa-utensils) {
+  background-color: var(--food-color); 
+}
+
+.property:not(.highlight):has(.fa-utensils)::after {
+  border-top: 9px solid var(--food-color); 
+}
+
+/*
+ * school icon colors.
+ */
+ .property.highlight:has(.fa-school) .icon {
+  color: var(--school-color); 
+}
+
+.property:not(.highlight):has(.fa-school) {
+  background-color: var(--school-color); 
+}
+
+.property:not(.highlight):has(.fa-school)::after {
+  border-top: 9px solid var(--school-color); 
 }

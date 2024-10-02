@@ -14,6 +14,17 @@ import { marketData } from "../../coordinates/market";
 import { parkData } from "../../coordinates/park";
 import { potterData } from "../../coordinates/potter";
 import { toiletData } from "../../coordinates/toilet";
+import { bankData } from "../../coordinates/bank";
+import { collegeData } from "../../coordinates/college";
+import { hospitalData } from "../../coordinates/hospital";
+import { hotelData } from "../../coordinates/hotel";
+import { mosqueData } from "../../coordinates/mosque";
+import { restaurantData } from "../../coordinates/restaurant";
+import { schoolData } from "../../coordinates/school";
+
+
+
+
 
 
 export const BaseMap = () => {
@@ -133,8 +144,8 @@ export const BaseMap = () => {
         });
       });
 
-       //Potter Markers
-       potterData.forEach((potter) => {
+      //Potter Markers
+      potterData.forEach((potter) => {
         const markerContent = buildContent(potter);
 
         const potterMarker = new AdvancedMarkerElement({
@@ -165,6 +176,118 @@ export const BaseMap = () => {
         });
       });
 
+      //Bank Markers
+      bankData.forEach((bank) => {
+        const markerContent = buildContent(bank);
+
+        const bankMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: bank.lat, lng: bank.lng },
+          title: bank.name,
+        });
+
+        bankMarker.addListener("click", () => {
+          toggleHighlight(bankMarker);
+        });
+      });
+
+      //College Markers
+      collegeData.forEach((college) => {
+        const markerContent = buildContent(college);
+
+        const collegeMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: college.lat, lng: college.lng },
+          title: college.name,
+        });
+
+        collegeMarker.addListener("click", () => {
+          toggleHighlight(collegeMarker);
+        });
+      });
+
+      //Hospital Markers
+      hospitalData.forEach((hospital) => {
+        const markerContent = buildContent(hospital);
+
+        const hospitalMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: hospital.lat, lng: hospital.lng },
+          title: hospital.name,
+        });
+
+        hospitalMarker.addListener("click", () => {
+          toggleHighlight(hospitalMarker);
+        });
+      });
+
+      //Hotel Markers
+      hotelData.forEach((hotel) => {
+        const markerContent = buildContent(hotel);
+
+        const hotelMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: hotel.lat, lng: hotel.lng },
+          title: hotel.name,
+        });
+
+        hotelMarker.addListener("click", () => {
+          toggleHighlight(hotelMarker);
+        });
+      });
+
+      //Mosque Markers
+      mosqueData.forEach((mosque) => {
+        const markerContent = buildContent(mosque);
+
+        const mosqueMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: mosque.lat, lng: mosque.lng },
+          title: mosque.name,
+        });
+
+        mosqueMarker.addListener("click", () => {
+          toggleHighlight(mosqueMarker);
+        });
+      });
+
+
+      //Restaurant Markers
+      restaurantData.forEach((restaurant) => {
+        const markerContent = buildContent(restaurant);
+
+        const restaurantMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: restaurant.lat, lng: restaurant.lng },
+          title: restaurant.name,
+        });
+
+        restaurantMarker.addListener("click", () => {
+          toggleHighlight(restaurantMarker);
+        });
+      });
+
+      //School Markers
+      schoolData.forEach((school) => {
+        const markerContent = buildContent(school);
+
+        const schoolMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: school.lat, lng: school.lng },
+          title: school.name,
+        });
+
+        schoolMarker.addListener("click", () => {
+          toggleHighlight(schoolMarker);
+        });
+      });
 
       //Marking code is ending here
     }
