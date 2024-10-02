@@ -22,11 +22,6 @@ import { mosqueData } from "../../coordinates/mosque";
 import { restaurantData } from "../../coordinates/restaurant";
 import { schoolData } from "../../coordinates/school";
 
-
-
-
-
-
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -256,7 +251,6 @@ export const BaseMap = () => {
         });
       });
 
-
       //Restaurant Markers
       restaurantData.forEach((restaurant) => {
         const markerContent = buildContent(restaurant);
@@ -322,6 +316,39 @@ export const BaseMap = () => {
 
     // Call the function to load libraries and add markers
     loadLibraries();
+  }, [mapInstance]);
+
+  // Add the Navigation buttons once the map is ready
+  useEffect(() => {
+    if (mapInstance) {
+      // Will be used to navigate between markers
+      const dharavi = { lat: 19.041908, lng: 72.855031 };
+
+      function createNavigateMarkers() {
+        const prevButton = document.createElement("button");
+        const nextButton = document.createElement("button");
+        prevButton.classList.add("navigate-map-button");
+        nextButton.classList.add("navigate-map-button");
+        prevButton.innerHTML = `<i class="fa-solid fa-arrow-left"></i> Prev`;
+        nextButton.innerHTML = `Next <i class="fa-solid fa-arrow-right"></i>`;
+
+        prevButton.addEventListener("click", () => {
+          mapInstance.setCenter(dharavi);
+        });
+
+        nextButton.addEventListener("click", () => {
+          mapInstance.setCenter(dharavi);
+        });
+
+        const navigateDiv = document.createElement("div");
+        navigateDiv.appendChild(prevButton);
+        navigateDiv.appendChild(nextButton);
+        mapInstance.controls[
+          window.google.maps.ControlPosition.BOTTOM_CENTER
+        ].push(navigateDiv);
+      }
+      createNavigateMarkers();
+    }
   }, [mapInstance]);
 
   const mapsLib = useMapsLibrary("maps");
