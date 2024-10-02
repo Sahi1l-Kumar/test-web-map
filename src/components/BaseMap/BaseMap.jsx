@@ -8,6 +8,25 @@ import { useEffect, useState } from "react";
 import "./BaseMap.css";
 import { templeData } from "../../coordinates/temple";
 import { storeData } from "../../coordinates/store";
+import { barData } from "../../coordinates/bar";
+import { churchData } from "../../coordinates/church";
+import { marketData } from "../../coordinates/market";
+import { parkData } from "../../coordinates/park";
+import { potterData } from "../../coordinates/potter";
+import { toiletData } from "../../coordinates/toilet";
+import { bankData } from "../../coordinates/bank";
+import { collegeData } from "../../coordinates/college";
+import { hospitalData } from "../../coordinates/hospital";
+import { hotelData } from "../../coordinates/hotel";
+import { mosqueData } from "../../coordinates/mosque";
+import { restaurantData } from "../../coordinates/restaurant";
+import { schoolData } from "../../coordinates/school";
+
+
+
+
+
+
 export const BaseMap = () => {
   const apiIsLoaded = useApiIsLoaded();
   const [mapInstance, setMapInstance] = useState(null);
@@ -60,6 +79,217 @@ export const BaseMap = () => {
           toggleHighlight(storeMarker);
         });
       });
+
+      //Bar Markers
+      barData.forEach((bar) => {
+        const markerContent = buildContent(bar);
+
+        const barMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: bar.lat, lng: bar.lng },
+          title: bar.name,
+        });
+
+        barMarker.addListener("click", () => {
+          toggleHighlight(barMarker);
+        });
+      });
+
+      //Church Markers
+      churchData.forEach((church) => {
+        const markerContent = buildContent(church);
+
+        const churchMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: church.lat, lng: church.lng },
+          title: church.name,
+        });
+
+        churchMarker.addListener("click", () => {
+          toggleHighlight(churchMarker);
+        });
+      });
+
+      //Market Markers
+      marketData.forEach((market) => {
+        const markerContent = buildContent(market);
+
+        const marketMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: market.lat, lng: market.lng },
+          title: market.name,
+        });
+
+        marketMarker.addListener("click", () => {
+          toggleHighlight(marketMarker);
+        });
+      });
+
+      //Park Markers
+      parkData.forEach((park) => {
+        const markerContent = buildContent(park);
+
+        const parkMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: park.lat, lng: park.lng },
+          title: park.name,
+        });
+
+        parkMarker.addListener("click", () => {
+          toggleHighlight(parkMarker);
+        });
+      });
+
+      //Potter Markers
+      potterData.forEach((potter) => {
+        const markerContent = buildContent(potter);
+
+        const potterMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: potter.lat, lng: potter.lng },
+          title: potter.name,
+        });
+
+        potterMarker.addListener("click", () => {
+          toggleHighlight(potterMarker);
+        });
+      });
+
+      //Toilet Markers
+      toiletData.forEach((toilet) => {
+        const markerContent = buildContent(toilet);
+
+        const toiletMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: toilet.lat, lng: toilet.lng },
+          title: toilet.name,
+        });
+
+        toiletMarker.addListener("click", () => {
+          toggleHighlight(toiletMarker);
+        });
+      });
+
+      //Bank Markers
+      bankData.forEach((bank) => {
+        const markerContent = buildContent(bank);
+
+        const bankMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: bank.lat, lng: bank.lng },
+          title: bank.name,
+        });
+
+        bankMarker.addListener("click", () => {
+          toggleHighlight(bankMarker);
+        });
+      });
+
+      //College Markers
+      collegeData.forEach((college) => {
+        const markerContent = buildContent(college);
+
+        const collegeMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: college.lat, lng: college.lng },
+          title: college.name,
+        });
+
+        collegeMarker.addListener("click", () => {
+          toggleHighlight(collegeMarker);
+        });
+      });
+
+      //Hospital Markers
+      hospitalData.forEach((hospital) => {
+        const markerContent = buildContent(hospital);
+
+        const hospitalMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: hospital.lat, lng: hospital.lng },
+          title: hospital.name,
+        });
+
+        hospitalMarker.addListener("click", () => {
+          toggleHighlight(hospitalMarker);
+        });
+      });
+
+      //Hotel Markers
+      hotelData.forEach((hotel) => {
+        const markerContent = buildContent(hotel);
+
+        const hotelMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: hotel.lat, lng: hotel.lng },
+          title: hotel.name,
+        });
+
+        hotelMarker.addListener("click", () => {
+          toggleHighlight(hotelMarker);
+        });
+      });
+
+      //Mosque Markers
+      mosqueData.forEach((mosque) => {
+        const markerContent = buildContent(mosque);
+
+        const mosqueMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: mosque.lat, lng: mosque.lng },
+          title: mosque.name,
+        });
+
+        mosqueMarker.addListener("click", () => {
+          toggleHighlight(mosqueMarker);
+        });
+      });
+
+
+      //Restaurant Markers
+      restaurantData.forEach((restaurant) => {
+        const markerContent = buildContent(restaurant);
+
+        const restaurantMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: restaurant.lat, lng: restaurant.lng },
+          title: restaurant.name,
+        });
+
+        restaurantMarker.addListener("click", () => {
+          toggleHighlight(restaurantMarker);
+        });
+      });
+
+      //School Markers
+      schoolData.forEach((school) => {
+        const markerContent = buildContent(school);
+
+        const schoolMarker = new AdvancedMarkerElement({
+          map: mapInstance,
+          content: markerContent,
+          position: { lat: school.lat, lng: school.lng },
+          title: school.name,
+        });
+
+        schoolMarker.addListener("click", () => {
+          toggleHighlight(schoolMarker);
+        });
+      });
+
+      //Marking code is ending here
     }
 
     // Same as the initMap logic
